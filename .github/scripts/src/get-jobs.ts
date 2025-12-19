@@ -7,7 +7,14 @@ import { Job } from "./types/job.schema";
 import { HEADERS, MARKERS, TABLES } from "./config";
 
 dotenv.config();
-const APPLY_IMG_URL = process.env.APPLY_IMG_URL;
+const APPLY_IMG_URL = process.env.APPLY_IMG_URL?.trim();
+
+function cleanCell(value: string | null | undefined) {
+  if (!value) {
+    return "";
+  }
+  return value.replace(/\s+/g, " ").trim();
+}
 
 function generateMarkdownTable(
   jobs: Job[],
@@ -22,18 +29,20 @@ function generateMarkdownTable(
   table += `|${headers.map(() => "---").join("|")}|\n`;
 
   jobs.forEach((job) => {
-    const applyCell = `<a href="${job.job_url}"><img src="${APPLY_IMG_URL}" alt="Apply" width="70"/></a>`;
+    const applyCell = `<a href="${cleanCell(
+      job.job_url
+    )}"><img src="${APPLY_IMG_URL || ""}" alt="Apply" width="70"/></a>`;
 
     const companyCell = job.company_url
-      ? `<a href="${job.company_url}"><strong>${
-          job.company_name || ""
-        }</strong></a>`
-      : `<strong>${job.company_name || ""}</strong>`;
+      ? `<a href="${cleanCell(job.company_url)}"><strong>${cleanCell(
+          job.company_name
+        )}</strong></a>`
+      : `<strong>${cleanCell(job.company_name)}</strong>`;
 
     const row = [
       companyCell,
-      job.job_title || "",
-      job.job_locations || "",
+      cleanCell(job.job_title),
+      cleanCell(job.job_locations),
       applyCell,
       `${job.age}d`,
     ];
