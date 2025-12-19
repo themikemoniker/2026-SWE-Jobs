@@ -45,7 +45,8 @@ export async function fetchJobCounts() {
   }
 
   try {
-    return JobCountsSchema.parse(data);
+    const payload = Array.isArray(data) ? data[0] : data;
+    return JobCountsSchema.parse(payload);
   } catch (validationError) {
     throw new Error(`Data validation error: ${validationError}`);
   }

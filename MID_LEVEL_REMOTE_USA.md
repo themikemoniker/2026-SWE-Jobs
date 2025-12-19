@@ -16,6 +16,7 @@
 <!-- TABLE_FAANG_START -->
 | Company | Position | Location | Salary | Posting | Age |
 |---|---|---|---|---|---|
+
 <!-- TABLE_FAANG_END -->
 
 ### Quant
@@ -23,6 +24,7 @@
 <!-- TABLE_QUANT_START -->
 | Company | Position | Location | Salary | Posting | Age |
 |---|---|---|---|---|---|
+
 <!-- TABLE_QUANT_END -->
 
 ### Other
@@ -30,6 +32,7 @@
 <!-- TABLE_START -->
 | Company | Position | Location | Posting | Age |
 |---|---|---|---|---|
+
 <!-- TABLE_END -->
 
 <a name="bottom"></a>
