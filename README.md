@@ -1,63 +1,81 @@
-# 2026 Software Engineering Internship & New Grad Positions
+# 1099 Senior Dev Contracts - Internal Tool
 
-This repository is a comprehensive list of Software Engineering jobs for college students in search of **internships** or **new graduate** positions. The positions are updated daily, and we prioritize jobs posted within the last 120 days.
+Internal contract finder for senior software developers. All positions are **1099 contracts**, **US Remote**, targeting **5+ years experience**.
 
-### USA Positions :eagle:
-- [Internships :books:](/) - **0** available ([FAANG+](#faang), [Quant](#quant), [Other](#other))
-- [New Graduate :mortar_board:](/NEW_GRAD_USA.md) - **0** available ([FAANG+](/NEW_GRAD_USA.md#faang), [Quant](/NEW_GRAD_USA.md#quant), [Other](/NEW_GRAD_USA.md#other))
-- [Mid-Level Remote (3-9 yrs) :computer:](/MID_LEVEL_REMOTE_USA.md)
+> **Legend**: :lock: = Clearance Required | :briefcase: = Corp-to-Corp Available
 
-### International Positions :globe_with_meridians:
-- [Internships :books:](/INTERN_INTL.md) - **0** available ([FAANG+](/INTERN_INTL.md#faang), [Quant](/INTERN_INTL.md#quant), [Other](/INTERN_INTL.md#other))
-- [New Graduate :mortar_board:](/NEW_GRAD_INTL.md) - **0** available ([FAANG+](/NEW_GRAD_INTL.md#faang), [Quant](/NEW_GRAD_INTL.md#quant), [Other](/NEW_GRAD_INTL.md#other))
+---
 
-<br/>
-<div align="center">
-  <a href="https://speedyapply.com">
-    <img src="https://speedyapply.com/api/jobs/chart" width="800" alt="Software Engineering College Job Market">
-  </a>
-</div>
-<div align="center">
-  <a href="https://discord.gg/gaJnCmTHuN">
-    <img src="https://github.com/user-attachments/assets/1547dbd1-89d9-4f14-8feb-70cab53b1335" width="132" alt="SpeedyApply Discord Server">
-  </a>
-  <a href="https://chromewebstore.google.com/detail/speedyapply-job-applicati/mbgjopdedgonlbpikjfibkccpmhjbnag">
-    <img src="https://github.com/user-attachments/assets/e8ad0070-9f04-4b1c-9291-a268775aab69" width="132" alt="SpeedyApply Chrome Web Store">
-  </a>
-</div>
-<br/>
+## Dashboard
 
-:raised_hands: Looking for an **Artificial Intelligence** job? [Check out our AI/ML college jobs list.](https://github.com/speedyapply/2026-AI-College-Jobs) :raised_hands:
+<!-- ANALYTICS_START -->
+| Metric | Value |
+|--------|-------|
+| **Total Active Contracts** | 0 |
+| **Average Rate** | N/A |
+| **Rate Range** | N/A |
+| **Urgent Contracts** | 0 |
+| **Starting in 30 Days** | 0 |
+<!-- ANALYTICS_END -->
 
-<a name="intern-usa"></a>
-## 2026 USA SWE Internships :books::eagle:
+### Top In-Demand Skills
 
-[:arrow_down_small:End of List](#bottom)
-<a name="top"></a>
+<!-- SKILLS_START -->
+_No skill data available_
+<!-- SKILLS_END -->
 
-### FAANG+
+### By Industry
 
-<!-- TABLE_FAANG_START -->
-| Company | Position | Location | Salary | Posting | Age |
-|---|---|---|---|---|---|
+<!-- INDUSTRIES_START -->
+_No industry data available_
+<!-- INDUSTRIES_END -->
 
-<!-- TABLE_FAANG_END -->
+### By Contract Duration
 
-### Quant
+<!-- DURATIONS_START -->
+_No duration data available_
+<!-- DURATIONS_END -->
 
-<!-- TABLE_QUANT_START -->
-| Company | Position | Location | Salary | Posting | Age |
-|---|---|---|---|---|---|
+---
 
-<!-- TABLE_QUANT_END -->
+## Active Contracts
 
-### Other
+### Urgent - Immediate Start
 
-<!-- TABLE_START -->
-| Company | Position | Location | Posting | Age |
-|---|---|---|---|---|
+<!-- TABLE_URGENT_START -->
+| Company | Position | Rate | Duration | Start | Tech Stack | Apply |
+|---|---|---|---|---|---|---|
+<!-- TABLE_URGENT_END -->
 
-<!-- TABLE_END -->
+### High Priority
 
-<a name="bottom"></a>
-[:arrow_up_small:Start of List](#top)
+<!-- TABLE_HIGH_START -->
+| Company | Position | Rate | Duration | Start | Tech Stack | Apply |
+|---|---|---|---|---|---|---|
+<!-- TABLE_HIGH_END -->
+
+### Standard
+
+<!-- TABLE_NORMAL_START -->
+| Company | Position | Rate | Duration | Start | Tech Stack | Apply |
+|---|---|---|---|---|---|---|
+<!-- TABLE_NORMAL_END -->
+
+---
+
+## Submit a Contract
+
+Use [GitHub Issues](../../issues/new/choose) to submit new contracts or update existing ones.
+
+- **New Contract**: Add a new contract opportunity
+- **Update Contract**: Modify or close an existing contract
+
+---
+
+## About
+
+This internal tool helps our agency track and manage 1099 contract opportunities for senior developers. Data is updated daily via automated workflows.
+
+**Contract Types**: 1099 Independent Contractor
+**Location**: US Remote
+**Experience Level**: Senior (5+ years)

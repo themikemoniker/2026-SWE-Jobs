@@ -1,11 +1,11 @@
-name: Add or Update Job
+name: Add or Update Contract
 
 on:
   issues:
     types: ["labeled"]
 
 jobs:
-  update-or-add-job:
+  update-or-add-contract:
     runs-on: ubuntu-latest
     if: github.event.label.name == 'approved'
 
@@ -23,9 +23,9 @@ jobs:
         run: npm install
         working-directory: .github/scripts
 
-      - name: Update or Add Job
+      - name: Update or Add Contract
         run: npm run add-or-update-job
-        id: add_or_update_job
+        id: add_or_update_contract
         working-directory: .github/scripts
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
@@ -33,7 +33,7 @@ jobs:
           GIT_USER_NAME: ${{ secrets.GIT_USER_NAME }}
           GIT_USER_EMAIL: ${{ secrets.GIT_USER_EMAIL }}
 
-      - name: Get Jobs and Update Tables
+      - name: Get Contracts and Update Tables
         if: success()
         run: npm run get-jobs
         working-directory: .github/scripts
@@ -45,10 +45,10 @@ jobs:
       - name: Commit Markdown changes
         if: success()
         run: |
-          git config --local user.name ${{ steps.add_or_update_job.outputs.git_user_name }}
-          git config --local user.email ${{ steps.add_or_update_job.outputs.git_user_email }}
-          git add README.md INTERN_INTL.md NEW_GRAD_USA.md NEW_GRAD_INTL.md
-          git diff --staged --exit-code || git commit -m "${{ steps.add_or_update_job.outputs.commit_message }}"
+          git config --local user.name ${{ steps.add_or_update_contract.outputs.git_user_name }}
+          git config --local user.email ${{ steps.add_or_update_contract.outputs.git_user_email }}
+          git add README.md
+          git diff --staged --exit-code || git commit -m "${{ steps.add_or_update_contract.outputs.commit_message }}"
 
       - name: Push changes
         if: success()
@@ -60,13 +60,13 @@ jobs:
       - name: Action Succeeded
         if: success()
         run: |
-          gh issue close --comment "Your contribution has been approved. Closing this issue..." ${{ github.event.issue.number }}
+          gh issue close --comment "Your contract has been added/updated. Closing this issue..." ${{ github.event.issue.number }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Action Failed
         if: failure()
         run: |
-          gh issue comment ${{ github.event.issue.number }} --body "There was an error updating or adding this job. Error: ${{ steps.add_or_update_job.outputs.error }}"
+          gh issue comment ${{ github.event.issue.number }} --body "There was an error processing this contract. Error: ${{ steps.add_or_update_contract.outputs.error }}"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
