@@ -1,7 +1,7 @@
 import dotenv from "dotenv";
 import { createClient } from "@supabase/supabase-js";
-import { JobListSchema } from "./types/job.schema";
-import { JobCountsSchema } from "./types/job-counts.schema";
+import { ContractListSchema } from "./types/contract.schema";
+import { AnalyticsSchema } from "./types/analytics.schema";
 
 dotenv.config();
 const supabaseUrl = process.env.SUPABASE_URL;
@@ -10,35 +10,40 @@ const supabaseKey = process.env.SUPABASE_KEY;
 const supabase =
   supabaseUrl && supabaseKey ? createClient(supabaseUrl, supabaseKey) : null;
 
-type JobQueryParams = Record<string, string | number | boolean | null>;
+type ContractQueryParams = {
+  p_priority?: string | null;
+  p_min_rate?: number | null;
+  p_max_rate?: number | null;
+};
 
-export async function fetchJobs(
-  params: JobQueryParams,
-  rpcName: string = "get_jobs"
-) {
+export async function fetchContracts(params: ContractQueryParams = {}) {
   if (!supabase) {
     throw new Error("Supabase client is not initialized.");
   }
 
-  const { data, error } = await supabase.rpc(rpcName, params);
+  const { data, error } = await supabase.rpc("get_contracts", params);
 
   if (error) {
     throw new Error(`Supabase query error: ${error.message}`);
   }
 
   try {
-    return JobListSchema.parse(data);
+    return ContractListSchema.parse(data);
   } catch (validationError) {
     throw new Error(`Data validation error: ${validationError}`);
   }
 }
 
-export async function fetchJobCounts() {
+export async function fetchContractsByPriority(priority: string) {
+  return fetchContracts({ p_priority: priority });
+}
+
+export async function fetchAnalytics() {
   if (!supabase) {
     throw new Error("Supabase client is not initialized.");
   }
 
-  const { data, error } = await supabase.rpc("get_swe_job_counts");
+  const { data, error } = await supabase.rpc("get_contract_analytics");
 
   if (error) {
     throw new Error(`Supabase query error: ${error.message}`);
@@ -46,7 +51,7 @@ export async function fetchJobCounts() {
 
   try {
     const payload = Array.isArray(data) ? data[0] : data;
-    return JobCountsSchema.parse(payload);
+    return AnalyticsSchema.parse(payload);
   } catch (validationError) {
     throw new Error(`Data validation error: ${validationError}`);
   }

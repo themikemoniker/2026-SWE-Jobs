@@ -1,77 +1,160 @@
-name: New Position
-description: Add a new grad or intern job position.
-title: "New Position"
+name: New Contract
+description: Add a new 1099 contract opportunity for senior developers.
+title: "New Contract"
 labels: ["new"]
 body:
   - type: markdown
     attributes:
       value: |
-        ## New SWE Position Form
-        
-        To contribute to the job lists, fill out the form below. We **ONLY** accept Software Engineering roles for internships or new college graduates.
+        ## New Contract Submission
 
-        We appreciate your contribution.
+        Submit a new 1099 contract opportunity for our senior developers. All fields marked with * are required.
+
   - type: input
     id: job_title
     attributes:
-      label: Position Title
-      placeholder: e.g. New Grad Software Engineer
+      label: Position Title *
+      placeholder: e.g. Senior React Developer
     validations:
       required: true
+
   - type: input
     id: job_url
     attributes:
-      label: Position Application Link
-      placeholder: e.g. https://company.com/posting
+      label: Contract/Application Link *
+      placeholder: e.g. https://company.com/contract/123
     validations:
       required: true
+
   - type: input
     id: company_name
     attributes:
-      label: Company Name
-      placeholder: e.g. Amazon
+      label: Company/Client Name *
+      placeholder: e.g. TechConsult Inc
     validations:
       required: true
+
   - type: input
     id: company_url
     attributes:
-      label: Company Link
-      placeholder: e.g. https://amazon.com
+      label: Company Website
+      placeholder: e.g. https://techconsult.com
     validations:
-      required: true
+      required: false
+
+  - type: dropdown
+    id: client_industry
+    attributes:
+      label: Client Industry
+      multiple: false
+      options:
+        - Tech
+        - Finance
+        - Healthcare
+        - Government
+        - Retail
+        - Manufacturing
+        - Other
+    validations:
+      required: false
+
   - type: input
     id: location
     attributes:
       label: Location
-      placeholder: e.g. San Franciso, CA
+      description: Default is "Remote - USA" if left blank
+      placeholder: e.g. Remote - USA, Hybrid - NYC
     validations:
-      required: true
-  - type: dropdown
-    id: job_type
-    attributes:
-      label: Is this a new grad position or an internship?
-      multiple: false
-      options:
-        - New Grad
-        - Internship
-    validations:
-      required: true
-  - type: dropdown
-    id: usa
-    attributes:
-      label: Is this position based in the USA?
-      multiple: false
-      options:
-        - No, it's international.
-        - Yes, it's based in the USA.
-    validations:
-      required: true
+      required: false
+
   - type: input
-    id: github
+    id: hourly_rate_min
     attributes:
-      label: Your GitHub Email
-      description: |
-        (Optional) Include your GitHub email here if you would like the credit for this contribution when the job is added to our lists.
-      placeholder: e.g. bot@speedyapply.com
+      label: Minimum Hourly Rate ($)
+      placeholder: e.g. 85
+    validations:
+      required: false
+
+  - type: input
+    id: hourly_rate_max
+    attributes:
+      label: Maximum Hourly Rate ($)
+      placeholder: e.g. 105
+    validations:
+      required: false
+
+  - type: dropdown
+    id: contract_duration
+    attributes:
+      label: Contract Duration
+      multiple: false
+      options:
+        - 3 months
+        - 6 months
+        - 12 months
+        - 18 months
+        - 24 months
+        - Ongoing
+    validations:
+      required: false
+
+  - type: input
+    id: start_date
+    attributes:
+      label: Start Date
+      description: When does the contract begin? (YYYY-MM-DD format)
+      placeholder: e.g. 2026-02-15
+    validations:
+      required: false
+
+  - type: input
+    id: tech_stack
+    attributes:
+      label: Tech Stack
+      description: Comma-separated list of technologies
+      placeholder: e.g. React, TypeScript, Node.js, AWS
+    validations:
+      required: false
+
+  - type: input
+    id: experience_years_min
+    attributes:
+      label: Minimum Years Experience
+      description: Default is 5 years if left blank
+      placeholder: e.g. 5
+    validations:
+      required: false
+
+  - type: dropdown
+    id: clearance_required
+    attributes:
+      label: Security Clearance Required?
+      multiple: false
+      options:
+        - "No"
+        - "Yes"
+    validations:
+      required: false
+
+  - type: dropdown
+    id: corp_to_corp
+    attributes:
+      label: Corp-to-Corp (C2C) Available?
+      multiple: false
+      options:
+        - "No"
+        - "Yes"
+    validations:
+      required: false
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority Level
+      multiple: false
+      options:
+        - Normal
+        - High
+        - Urgent
     validations:
       required: false

@@ -1,7 +1,7 @@
 {
-  "name": "swe-college-jobs",
+  "name": "1099-contract-finder",
   "version": "1.0.0",
-  "description": "The most comprehensive SWE internship & new graduate job list on GitHub.",
+  "description": "Internal tool for tracking 1099 senior dev contract opportunities.",
   "scripts": {
     "build": "tsc",
     "get-jobs": "tsc && node build/get-jobs.js",
